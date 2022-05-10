@@ -16,12 +16,12 @@
       "strict": true,
       "forceConsistentCasingInFileNames": true,
       "noFallthroughCasesInSwitch": true,
-      "module": "esnext",
+      "module": "commonjs",
       "moduleResolution": "node",
       "resolveJsonModule": true,
       "isolatedModules": false,
       "noEmit": false,
-      "jsx": "react-jsx"
+      "jsx": "react-jsx"      
     },
     "exclude": [
       "src/**/*.tests.js",
