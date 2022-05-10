@@ -4,5 +4,8 @@
   "main": "index.js",
   "repository": "https://github.com/jaclaren/jc_glossycards.git",
   "author": "Jani <on.codeworks@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "tsc:watch" : "tsc --watch"
+  }
 }
