@@ -7,7 +7,8 @@ const config = {
             root: 'jc-glossycard',
             img: 'jc-gc__img',
             bgElement: `jc-gc__bg`,
-            titleElement: `jc-gc__title`
+            titleElement: `jc-gc__title`,
+            glossElement: `jc-gc__gloss`
         }
     }
 };
@@ -37,6 +38,8 @@ export default class JCGlossyCards {
     generateCard(document, item, element) {
         const rootElement = document.createElement("div");
         rootElement.classList.add(config.classNames.cards.root);
+        const glossElement = document.createElement("div");
+        glossElement.classList.add(config.classNames.cards.glossElement);
         const bgElement = document.createElement("div");
         bgElement.classList.add(config.classNames.cards.bgElement);
         bgElement.style.backgroundImage = `url(${item.img})`;
@@ -47,6 +50,7 @@ export default class JCGlossyCards {
         titleElement.classList.add(config.classNames.cards.titleElement);
         titleElement.innerHTML = item.title;
         rootElement.appendChild(bgElement);
+        rootElement.appendChild(glossElement);
         rootElement.appendChild(imageElement);
         rootElement.appendChild(titleElement);
         element.appendChild(rootElement);

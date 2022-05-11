@@ -1,7 +1,6 @@
 body {
-    background: rgb(56, 56, 56);
+    background: #222;
 }
-
 
 .jc-glossycards {
     display: flex;
@@ -14,28 +13,54 @@ body {
     flex-basis: 110px;
 
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     flex-direction: column;
 
-    outline: solid 1px red;
-    padding: 1rem;
+    box-shadow: 0px 3px 6px 3px rgb(0 0 0 / 0.36);
+    
+    padding: 1.5rem;
     background-size: cover;
     background-position: center center;
     position: relative;    
     overflow: hidden;
+
+    border-radius: 5px;
 }
 
 .jc-gc {        
+
+    &__gloss {
+        position: absolute;
+        top: -100px;
+        background: rgba(255, 255, 255, 0.445) !important;
+        left: -100px;
+        right: -100px;
+        height: 100px;
+
+        transform: rotate(320deg); 
+        
+        // content: ".";
+    }
     
     &__bg {
         content: ".";
-        filter: blur(13px) brightness(0.7);
+        filter: blur(50px) brightness(0.85);
         position: absolute;
         left: 0; right: 0; top: 0; bottom: 0;         
         z-index: -1;
+        background-size: 100% 6000%;
     }
 
     &__img {        
         display: block;        
+        max-height: 140px;        
+    }
+
+    &__title { 
+        display: flex;
+        justify-content: center;
+        align-items: center;        
+
+        color: #fff;
     }
 }
