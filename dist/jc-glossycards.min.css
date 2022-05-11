@@ -9,16 +9,30 @@ body {
 }
 
 .jc-glossycard {
-  width: 100px;
-  height: 200px;
+  flex-shrink: 0;
+  flex-basis: 110px;
+  display: flex;
+  justify-content: center;
   outline: solid 1px red;
   padding: 1rem;
   background-size: cover;
   background-position: center center;
+  position: relative;
+  overflow: hidden;
 }
 
 .jc-gc__bg {
   content: ".";
+  filter: blur(10px) brightness(0.7);
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+}
+.jc-gc__img {
+  display: block;
 }
 
 /*# sourceMappingURL=jc-glossycards.min.css.map */

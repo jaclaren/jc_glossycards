@@ -36,9 +36,9 @@ export default class JCGlossyCards {
     generateCard(document, item, element) {
         const rootElement = document.createElement("div");
         rootElement.classList.add(config.classNames.cards.root);
-        rootElement.style.backgroundImage = `url(${item.img})`;
         const bgElement = document.createElement("div");
         bgElement.classList.add(config.classNames.cards.bgElement);
+        bgElement.style.backgroundImage = `url(${item.img})`;
         const imageElement = document.createElement("img");
         imageElement.classList.add(config.classNames.cards.img);
         imageElement.src = item.img;

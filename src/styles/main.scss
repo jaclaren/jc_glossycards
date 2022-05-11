@@ -7,24 +7,34 @@ body {
     display: flex;
     flex-direction: row;    
     gap: 1rem;    
-
 }
 
 .jc-glossycard {
-    width: 100px;
-    height: 200px;
+    flex-shrink: 0;
+    flex-basis: 110px;
+
+    display: flex;
+    justify-content: center;
+
     outline: solid 1px red;
     padding: 1rem;
     background-size: cover;
     background-position: center center;
+    position: relative;    
+    overflow: hidden;
 }
 
 .jc-gc {        
-
+    
     &__bg {
-        content: "."
+        content: ".";
+        filter: blur(10px) brightness(0.7);
+        position: absolute;
+        left: 0; right: 0; top: 0; bottom: 0;         
+        z-index: -1;
     }
 
     &__img {        
+        display: block;        
     }
 }
