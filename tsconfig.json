@@ -1,34 +1,46 @@
 {
-    "compilerOptions": {
-      "target": "es5",
-      "lib": [
-        "dom",
-        "dom.iterable",
-        "esnext",
-        "es6"
-      ],
-      "outDir": "dist",
-      "rootDir": "src",
-      "allowJs": false,
-      "skipLibCheck": true,
-      "esModuleInterop": true,
-      "allowSyntheticDefaultImports": true,
-      "strict": true,
-      "forceConsistentCasingInFileNames": true,
-      "noFallthroughCasesInSwitch": true,
-      "module": "commonjs",
-      "moduleResolution": "node",
-      "resolveJsonModule": true,
-      "isolatedModules": false,
-      "noEmit": false,
-      "jsx": "react-jsx"      
-    },
-    "exclude": [
-      "src/**/*.tests.js",
-      "dist/*"
-    ],
-    "include": [
-      "src/**/*"
-    ]
+  "compilerOptions": {
+    "target": "ES2015",
+    "module": "ES2020",
+    "strict": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "declaration": true,
+    "outDir": "dist"
   }
+}
+
+// {
+//     "compilerOptions": {
+//       "module" : "ES2020",
+//       "target": "ES2015",
+//       "lib": [
+//         "dom",
+//         "dom.iterable",
+//         "esnext",
+//         "es6"        
+//       ],
+//       "outDir": "dist",
+//       "rootDir": "src",      
+//       "allowJs": true,
+//       "skipLibCheck": true,
+//       "esModuleInterop": true,
+//       "allowSyntheticDefaultImports": true,
+//       "strict": false,
+//       "forceConsistentCasingInFileNames": true,
+//       "noFallthroughCasesInSwitch": true,      
+//       "moduleResolution": "node",
+//       "resolveJsonModule": true,
+//       "isolatedModules": true,
+//       "noEmit": false,
+//       "jsx": "react-jsx"      
+//     },
+//     "exclude": [
+//       "src/**/*.tests.js",
+//       "dist/*"
+//     ],
+//     "include": [
+//       "src/**/*"
+//     ]
+//   }
   
