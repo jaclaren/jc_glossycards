@@ -24,7 +24,7 @@ body {
 
 .jc-gc__gloss {
   position: absolute;
-  top: -250px;
+  top: -229px;
   background: linear-gradient(rgba(255, 255, 255, 0.4) 97%, rgba(255, 255, 255, 0) 100%);
   left: -150px;
   right: -150px;
@@ -48,7 +48,7 @@ body {
   transform: rotate3d(1, 0, 0, 5deg);
 }
 .jc-gc__wrapper:hover .jc-gc__gloss {
-  top: -150px;
+  top: -129px;
 }
 .jc-gc__bg {
   content: ".";
@@ -68,9 +68,17 @@ body {
   margin: 0 auto;
 }
 .jc-gc__title {
-  display: flex;
+  margin-top: 1rem;
+  font-family: sans-serif;
+  text-transform: capitalize;
   justify-content: center;
   align-items: center;
+  text-align: center;
+  height: 1.98rem;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-size: 0.9rem;
+  text-shadow: 0px 0px 5px rgb(0, 0, 0);
   color: #fff;
 }
 
