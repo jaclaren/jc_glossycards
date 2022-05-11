@@ -9,6 +9,7 @@ const games = fetchGames()
         .then(res => 
             {                
                 const g = res.body.games.map((game: { coverimage: any; }) => {
+                    debugger
                     return {
                         img : game.coverimage,
                         href : '#'

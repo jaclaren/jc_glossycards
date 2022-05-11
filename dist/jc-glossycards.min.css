@@ -13,6 +13,7 @@ body {
   flex-basis: 110px;
   display: flex;
   justify-content: center;
+  flex-direction: column;
   outline: solid 1px red;
   padding: 1rem;
   background-size: cover;
@@ -23,7 +24,7 @@ body {
 
 .jc-gc__bg {
   content: ".";
-  filter: blur(10px) brightness(0.7);
+  filter: blur(13px) brightness(0.7);
   position: absolute;
   left: 0;
   right: 0;

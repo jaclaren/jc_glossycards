@@ -6,7 +6,8 @@ const config = {
         cards: {
             root: 'jc-glossycard',
             img: 'jc-gc__img',
-            bgElement: `jc-gc__bg`
+            bgElement: `jc-gc__bg`,
+            titleElement: `jc-gc__title`
         }
     }
 };
@@ -42,8 +43,12 @@ export default class JCGlossyCards {
         const imageElement = document.createElement("img");
         imageElement.classList.add(config.classNames.cards.img);
         imageElement.src = item.img;
+        const titleElement = document.createElement("div");
+        titleElement.classList.add(config.classNames.cards.titleElement);
+        titleElement.innerHTML = item.title;
         rootElement.appendChild(bgElement);
         rootElement.appendChild(imageElement);
+        rootElement.appendChild(titleElement);
         element.appendChild(rootElement);
     }
 }
