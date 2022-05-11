@@ -4,7 +4,8 @@ import {
 } from "./jc-glossycards.d";
 
 const config = {
-  cardWidth: 185,
+  padding: 8,
+  numItems: 6,
   selectors: {
     attachElements: ".jc-glossycards",
   },
@@ -44,9 +45,9 @@ export default class JCGlossyCards {
       .querySelectorAll(config.selectors.attachElements)
       .forEach((element: any) => {
         this.items.forEach((item) => {  
-          const padding = 6
+          const padding = config.padding
           this.generateCard(document, item, element, {
-            width: (element.offsetWidth / 6)-(padding*2),
+            width: (element.offsetWidth / config.numItems)-(padding*2),
             padding
           });
         });

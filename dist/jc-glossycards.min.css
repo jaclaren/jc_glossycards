@@ -4,12 +4,12 @@ body {
 
 .tmp {
   width: 1200px;
-  outline: solid 1px red;
 }
 
 .jc-glossycards {
   display: flex;
   flex-direction: row;
+  overflow: hidden;
 }
 
 .jc-glossycard {
