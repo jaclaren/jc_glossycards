@@ -4,6 +4,7 @@ import {
 } from "./jc-glossycards.d";
 
 const config = {
+  cardWidth: 185,
   selectors: {
     attachElements: ".jc-glossycards",
   },
@@ -56,9 +57,10 @@ export default class JCGlossyCards {
 
     const rootElement = document.createElement("div");
     rootElement.classList.add(config.classNames.cards.root)    
+    rootElement.style.flexBasis = `${config.cardWidth}px`    
 
     const wrapperElement = document.createElement("div");
-    wrapperElement.classList.add(config.classNames.cards.wrapper)    
+    wrapperElement.classList.add(config.classNames.cards.wrapper)        
 
     const glossElement = document.createElement("div");
     glossElement.classList.add(config.classNames.cards.glossElement)            
