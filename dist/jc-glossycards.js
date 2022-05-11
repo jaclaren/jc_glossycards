@@ -33,14 +33,19 @@ export default class JCGlossyCards {
             .querySelectorAll(config.selectors.attachElements)
             .forEach((element) => {
             this.items.forEach((item) => {
-                this.generateCard(document, item, element);
+                const padding = 6;
+                this.generateCard(document, item, element, {
+                    width: (element.offsetWidth / 6) - (padding * 2),
+                    padding
+                });
             });
         });
     }
-    generateCard(document, item, element) {
+    generateCard(document, item, element, attrs) {
         const rootElement = document.createElement("div");
         rootElement.classList.add(config.classNames.cards.root);
-        rootElement.style.flexBasis = `${config.cardWidth}px`;
+        rootElement.style.flexBasis = `${attrs.width}px`;
+        rootElement.style.padding = `${attrs.padding}px`;
         const wrapperElement = document.createElement("div");
         wrapperElement.classList.add(config.classNames.cards.wrapper);
         const glossElement = document.createElement("div");

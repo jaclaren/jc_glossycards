@@ -21,10 +21,10 @@ const config = {
 };
 
 export default class JCGlossyCards {
-  items: JCGlossyCardItem[];
+  items: JCGlossyCardItem[];  
 
   constructor(config?: JCGlossyCardsConfigObject) {
-    this.items = [];
+    this.items = [];    
   }
 
   /**
@@ -42,9 +42,13 @@ export default class JCGlossyCards {
   attach(document: Document) {
     document
       .querySelectorAll(config.selectors.attachElements)
-      .forEach((element: Element) => {
-        this.items.forEach((item) => {
-          this.generateCard(document, item, element);
+      .forEach((element: any) => {
+        this.items.forEach((item) => {  
+          const padding = 6
+          this.generateCard(document, item, element, {
+            width: (element.offsetWidth / 6)-(padding*2),
+            padding
+          });
         });
       });
   }
@@ -52,12 +56,17 @@ export default class JCGlossyCards {
   private generateCard(
     document: Document,
     item: JCGlossyCardItem,
-    element: Element
+    element: Element,
+    attrs: {
+      width?: number,
+      padding?:number
+    }
   ) {
 
     const rootElement = document.createElement("div");
     rootElement.classList.add(config.classNames.cards.root)    
-    rootElement.style.flexBasis = `${config.cardWidth}px`    
+    rootElement.style.flexBasis = `${attrs.width}px`    
+    rootElement.style.padding = `${attrs.padding}px`    
 
     const wrapperElement = document.createElement("div");
     wrapperElement.classList.add(config.classNames.cards.wrapper)        

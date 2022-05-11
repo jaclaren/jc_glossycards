@@ -2,17 +2,20 @@ body {
   background: #222;
 }
 
+.tmp {
+  width: 1200px;
+  outline: solid 1px red;
+}
+
 .jc-glossycards {
   display: flex;
   flex-direction: row;
-  gap: 0;
 }
 
 .jc-glossycard {
   flex-shrink: 0;
   flex-basis: 150px;
-  padding: 0.5rem;
-  padding-bottom: 1rem;
+  padding-bottom: 1.2rem !important;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
