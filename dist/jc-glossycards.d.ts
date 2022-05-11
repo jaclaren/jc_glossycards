@@ -7,4 +7,7 @@ export default class JCGlossyCards {
      * @param items Items to render
      */
     setItems(items: JCGlossyCardItem[]): void;
+    initialize(): void;
+    attach(document: Document): void;
+    private generateCard;
 }

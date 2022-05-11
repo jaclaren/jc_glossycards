@@ -1,4 +1,4 @@
-import JCGlossyCards from "./jc-glossycards";
+import JCGlossyCards from "./jc-glossycards.js";
 
 const fetchGames = () => {
   return fetch("./fake.json");
@@ -17,8 +17,7 @@ const games = fetchGames()
 
                 const cards = new JCGlossyCards()
                 cards.setItems(g)
-
-                debugger
+                cards.initialize()
 
             })
                         

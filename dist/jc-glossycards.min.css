@@ -1,5 +1,24 @@
-.css {
-  body: blue;
+body {
+  background: rgb(56, 56, 56);
+}
+
+.jc-glossycards {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.jc-glossycard {
+  width: 100px;
+  height: 200px;
+  outline: solid 1px red;
+  padding: 1rem;
+  background-size: cover;
+  background-position: center center;
+}
+
+.jc-gc__bg {
+  content: ".";
 }
 
 /*# sourceMappingURL=jc-glossycards.min.css.map */

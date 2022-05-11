@@ -3,7 +3,7 @@ export default class JCGlossyCards {
 }
 
 export interface JCGlossyCardItem {
-    image: string;
+    img: string;
     href: string;
   }
   export interface JCGlossyCardsConfigObject { }
