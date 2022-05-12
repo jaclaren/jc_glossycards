@@ -65,6 +65,8 @@ export default class JCGlossyCards {
   private generateNavButton(document: Document, root: Element) {
     const button = document.createElement(`div`)
     button.classList.add(config.classNames.navButtons.root)
+    button.style.left = `-50px`;
+
     button.innerHTML = '>'    
       root.after(button, root.children[0])
   }

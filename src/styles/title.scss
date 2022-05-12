@@ -1,0 +1,23 @@
+.#{$ns} { 
+    &__title {    
+        $s: 1rem;
+        margin-top: 1rem;     
+        font-family: sans-serif;
+        
+        text-transform: capitalize;
+
+        // display: flex;        
+        justify-content: center;
+        align-items: center;        
+        text-align: center;
+
+        height: calc(($s*2.4));     
+        text-overflow: ellipsis;
+        overflow: hidden;        
+
+        font-size: $s;        
+        text-shadow: 0px 0px 5px rgb(0, 0, 0);
+
+        color: #fff;
+    }
+}

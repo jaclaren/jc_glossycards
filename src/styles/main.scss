@@ -4,6 +4,13 @@ $gloss-move: 100px;
 $transition-length-gloss : 510ms;
 $transition-length-rotate : 400ms;
 
+$ns : 'jc-gc';
+
+@import './gloss.scss';
+@import './title.scss';
+@import './wrapper.scss';
+@import './background.scss';
+
 body {
     background: #222;
     display: flex;
@@ -56,59 +63,8 @@ body {
         z-index: 500;
     }
 
-    &__gloss {
-        // display: none;
-        position: absolute;
-        top: $gloss-top;
-        background: linear-gradient(rgba(255, 255, 255, 0.4) 97%, rgba(255, 255, 255, 0) 100%);
-        left: -150px;
-        right: -150px;
-        height: 200px;        
-
-        transform: rotate(320deg);            
-        transition: all ease-in-out $transition-length-gloss;
-    }
-
-    &__wrapper {        
-        position: relative;
-        padding: 1rem;
-        overflow: hidden;
-
-        box-shadow: 0px 3px 6px 3px rgb(0 0 0 / 0.36);        
-        
-        background-size: cover;
-        background-position: center center;
-
-        border-radius: 5px;  
-        
-        transition: all ease-in-out $transition-length-rotate;
-
-        &:hover {
-            .jc-gc__gloss { 
-                top: calc($gloss-top + $gloss-move);
-             }   
-             
-             box-shadow: 0px 3px 11px 2px rgb(0 0 0 / 36%);
-
-             transform-origin: top;
-            transform: rotate3d(1,0,0,5deg);         
-        }
-    
-    
-    }
-
     &__content {
         display: flex;
-    }
-    
-    &__bg {
-        content: ".";
-        filter: blur(27px) brightness(0.5);
-        position: absolute;
-        $l : -20%;
-        left: $l; right: $l; top: $l; bottom: $l;         
-        z-index: -1;
-        background-size: 100% 500%;
     }
 
     &__img {        
@@ -118,25 +74,5 @@ body {
         margin: 0 auto;
     }
 
-    &__title {    
-        $s: 1rem;
-        margin-top: 1rem;     
-        font-family: sans-serif;
-        
-        text-transform: capitalize;
-
-        // display: flex;        
-        justify-content: center;
-        align-items: center;        
-        text-align: center;
-
-        height: calc(($s*2.4));     
-        text-overflow: ellipsis;
-        overflow: hidden;        
-
-        font-size: $s;        
-        text-shadow: 0px 0px 5px rgb(0, 0, 0);
-
-        color: #fff;
-    }
+    
 }

@@ -1,0 +1,14 @@
+.#{$ns} { 
+    &__gloss {
+        // display: none;
+        position: absolute;
+        top: $gloss-top;
+        background: linear-gradient(rgba(255, 255, 255, 0.4) 97%, rgba(255, 255, 255, 0) 100%);
+        left: -150px;
+        right: -150px;
+        height: 200px;        
+
+        transform: rotate(320deg);            
+        transition: all ease-in-out $transition-length-gloss;
+    }
+}

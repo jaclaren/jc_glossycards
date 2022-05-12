@@ -1,0 +1,11 @@
+.#{$ns} {     
+    &__bg {
+        content: ".";
+        filter: blur(27px) brightness(0.5);
+        position: absolute;
+        $l : -20%;
+        left: $l; right: $l; top: $l; bottom: $l;         
+        z-index: -1;
+        background-size: 100% 500%;
+    }
+}
