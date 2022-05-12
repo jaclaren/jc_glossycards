@@ -1,22 +1,27 @@
 .#{$ns} { 
     &__navbutton {
         content: ">";
-        width: 80px;
+        width: 60px;
         line-height: 50px;
         position: absolute;
-        top: 8px;
-        bottom: 20px;
+
+        top: 70px;
+        bottom: 70px;
+
+        border-radius: 4px;
+
         background:rgba(0, 0, 0, 0.8);
         // background: pink;
         z-index: 500;
     }
 
     &__nb {
+        $s: -86px;
         &-right {
-            right: 0;
+            right: $s;
         }
         &-left {
-            left: 0;
+            left: $s;
         }
     }
 

@@ -72,19 +72,20 @@
 
 .jc-gc__navbutton {
   content: ">";
-  width: 80px;
+  width: 60px;
   line-height: 50px;
   position: absolute;
-  top: 8px;
-  bottom: 20px;
+  top: 70px;
+  bottom: 70px;
+  border-radius: 4px;
   background: rgba(0, 0, 0, 0.8);
   z-index: 500;
 }
 .jc-gc__nb-right {
-  right: 0;
+  right: -86px;
 }
 .jc-gc__nb-left {
-  left: 0;
+  left: -86px;
 }
 
 .jc-gc__bg {

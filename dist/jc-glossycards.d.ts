@@ -2,6 +2,10 @@ import { JCGlossyCardItem, JCGlossyCardsConfigObject } from "./jc-glossycards.d"
 export default class JCGlossyCards {
     items: JCGlossyCardItem[];
     page: number;
+    visibility: {
+        leftNavButton: boolean;
+        rightNavButton: boolean;
+    };
     constructor(config?: JCGlossyCardsConfigObject);
     /**
      *
@@ -26,6 +30,7 @@ export default class JCGlossyCards {
      */
     private calculateCardWidth;
     previousPage(rowElement: HTMLElement | null, rootElement: HTMLElement): void;
+    refresh(): void;
     nextPage(rowElement: HTMLElement | null, rootElement: HTMLElement): void;
     renderElementTransition(element: HTMLElement, rootElement: HTMLElement): void;
     private generateNavButton;

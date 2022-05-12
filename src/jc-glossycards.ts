@@ -30,10 +30,19 @@ const config = {
 export default class JCGlossyCards {
   items: JCGlossyCardItem[];
   page: number;
+  visibility: {
+    leftNavButton: boolean,
+    rightNavButton: boolean,
+  };
 
   constructor(config?: JCGlossyCardsConfigObject) {
     this.items = [];
     this.page = 0;
+    
+    this.visibility = {
+      leftNavButton: false,
+      rightNavButton: false,
+    }
   }
 
   /**
@@ -46,6 +55,7 @@ export default class JCGlossyCards {
 
   initialize() {
     this.attach(document);
+    this.refresh()
   }
 
   attach(document: Document) {
@@ -74,13 +84,13 @@ export default class JCGlossyCards {
    */
 
   private generateNavButtons(document: Document, element: any) {
-    this.generateNavButton(`${config.classNames.navButtons.abbreviation}-left`, document, element, () => this.nextPage(
+    this.generateNavButton(`${config.classNames.navButtons.abbreviation}-left`, document, element, () => this.previousPage(
       element.querySelector(config.selectors.rowElement),
       element
     )
     );
 
-    this.generateNavButton(`${config.classNames.navButtons.abbreviation}-right`, document, element, () => this.previousPage(
+    this.generateNavButton(`${config.classNames.navButtons.abbreviation}-right`, document, element, () => this.nextPage(
       element.querySelector(config.selectors.rowElement),
       element
     )
@@ -104,13 +114,28 @@ export default class JCGlossyCards {
   }
 
   previousPage(rowElement: HTMLElement | null, rootElement: HTMLElement): void {
-    this.page--;
+    
+    if(this.page >= 1) {      
+      this.page--;
+    } else {
+      this.visibility.leftNavButton = false      
+    }      
+
     if (!!rowElement) this.renderElementTransition(rowElement, rootElement);
+
+    this.refresh()
+  }
+
+  refresh() {       
+    const el = document.querySelector(`.${config.classNames.navButtons.abbreviation}-left`) as HTMLElement;
+    el.style.visibility = this.page >= 1 ? `inherit` : `hidden`;
   }
 
   nextPage(rowElement: HTMLElement | null, rootElement: HTMLElement): void {    
+    // if(this.page >= 1)
     this.page++;
     if (!!rowElement) this.renderElementTransition(rowElement, rootElement);
+    this.refresh()
   }
 
   renderElementTransition(

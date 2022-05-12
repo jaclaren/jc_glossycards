@@ -25,6 +25,10 @@ export default class JCGlossyCards {
     constructor(config) {
         this.items = [];
         this.page = 0;
+        this.visibility = {
+            leftNavButton: false,
+            rightNavButton: false,
+        };
     }
     /**
      *
@@ -35,6 +39,7 @@ export default class JCGlossyCards {
     }
     initialize() {
         this.attach(document);
+        this.refresh();
     }
     attach(document) {
         document
@@ -57,8 +62,8 @@ export default class JCGlossyCards {
      * @param element root glossycard element
      */
     generateNavButtons(document, element) {
-        this.generateNavButton(`${config.classNames.navButtons.abbreviation}-left`, document, element, () => this.nextPage(element.querySelector(config.selectors.rowElement), element));
-        this.generateNavButton(`${config.classNames.navButtons.abbreviation}-right`, document, element, () => this.previousPage(element.querySelector(config.selectors.rowElement), element));
+        this.generateNavButton(`${config.classNames.navButtons.abbreviation}-left`, document, element, () => this.previousPage(element.querySelector(config.selectors.rowElement), element));
+        this.generateNavButton(`${config.classNames.navButtons.abbreviation}-right`, document, element, () => this.nextPage(element.querySelector(config.selectors.rowElement), element));
     }
     /**
      * Calculates the width for an individual card
@@ -72,14 +77,26 @@ export default class JCGlossyCards {
         return element.offsetWidth / itemsPerRow - padding * 2;
     }
     previousPage(rowElement, rootElement) {
-        this.page--;
+        if (this.page >= 1) {
+            this.page--;
+        }
+        else {
+            this.visibility.leftNavButton = false;
+        }
         if (!!rowElement)
             this.renderElementTransition(rowElement, rootElement);
+        this.refresh();
+    }
+    refresh() {
+        const el = document.querySelector(`.${config.classNames.navButtons.abbreviation}-left`);
+        el.style.visibility = this.page >= 1 ? `inherit` : `hidden`;
     }
     nextPage(rowElement, rootElement) {
+        // if(this.page >= 1)
         this.page++;
         if (!!rowElement)
             this.renderElementTransition(rowElement, rootElement);
+        this.refresh();
     }
     renderElementTransition(element, rootElement) {
         element.style.transform = `translate3d(-${rootElement.offsetWidth * this.page}px, 0, 0)`;
