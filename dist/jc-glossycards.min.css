@@ -75,12 +75,18 @@
   width: 80px;
   line-height: 50px;
   position: absolute;
-  left: 5px;
   top: 8px;
   bottom: 20px;
-  background: rgba(0, 0, 0, 0.25);
+  background: rgba(0, 0, 0, 0.8);
   z-index: 500;
 }
+.jc-gc__nb-right {
+  right: 0;
+}
+.jc-gc__nb-left {
+  left: 0;
+}
+
 .jc-gc__bg {
   content: ".";
   filter: blur(27px) brightness(0.5);

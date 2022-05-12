@@ -11,6 +11,13 @@ export default class JCGlossyCards {
     initialize(): void;
     attach(document: Document): void;
     /**
+     * Generates nav buttons
+     * @param document
+     * @param element root glossycard element
+     */
+    private generateNavButtons;
+    /**
+     * Calculates the width for an individual card
      *
      * @param element Root element
      * @param itemsPerRow
@@ -18,7 +25,17 @@ export default class JCGlossyCards {
      * @returns
      */
     private calculateCardWidth;
+    previousPage(rowElement: HTMLElement | null, rootElement: HTMLElement): void;
     nextPage(rowElement: HTMLElement | null, rootElement: HTMLElement): void;
+    renderElementTransition(element: HTMLElement, rootElement: HTMLElement): void;
     private generateNavButton;
+    /**
+     * Generates a card
+     *
+     * @param document
+     * @param item
+     * @param element
+     * @param attrs
+     */
     private generateCard;
 }

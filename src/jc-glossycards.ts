@@ -14,6 +14,7 @@ const config = {
   classNames: {
     navButtons: {
       root: `jc-gc__navbutton`,
+      abbreviation: `jc-gc__nb`
     },
     cards: {
       root: "jc-glossycard",
@@ -52,7 +53,8 @@ export default class JCGlossyCards {
       .querySelectorAll(config.selectors.attachElements)
       .forEach((element: any) => {
         const rowElement = element.querySelector(config.selectors.rowElement);
-        this.generateNavButton(document, element);
+        
+        this.generateNavButtons(document, element);
 
         this.items.forEach((item) => {
           const padding = config.padding;
@@ -66,6 +68,27 @@ export default class JCGlossyCards {
   }
 
   /**
+   * Generates nav buttons
+   * @param document 
+   * @param element root glossycard element
+   */
+
+  private generateNavButtons(document: Document, element: any) {
+    this.generateNavButton(`${config.classNames.navButtons.abbreviation}-left`, document, element, () => this.nextPage(
+      element.querySelector(config.selectors.rowElement),
+      element
+    )
+    );
+
+    this.generateNavButton(`${config.classNames.navButtons.abbreviation}-right`, document, element, () => this.previousPage(
+      element.querySelector(config.selectors.rowElement),
+      element
+    )
+    );
+  }
+
+  /**
+   * Calculates the width for an individual card
    *
    * @param element Root element
    * @param itemsPerRow
@@ -80,31 +103,51 @@ export default class JCGlossyCards {
     return element.offsetWidth / itemsPerRow - padding * 2;
   }
 
-  nextPage(rowElement: HTMLElement | null, rootElement: HTMLElement): void {
-    this.page++;
-
-    if (!!rowElement)
-      rowElement.style.transform = `translate3d(-${rootElement.offsetWidth*this.page}px, 0, 0)`;
+  previousPage(rowElement: HTMLElement | null, rootElement: HTMLElement): void {
+    this.page--;
+    if (!!rowElement) this.renderElementTransition(rowElement, rootElement);
   }
 
-  private generateNavButton(document: Document, root: HTMLElement) {
+  nextPage(rowElement: HTMLElement | null, rootElement: HTMLElement): void {    
+    this.page++;
+    if (!!rowElement) this.renderElementTransition(rowElement, rootElement);
+  }
+
+  renderElementTransition(
+    element: HTMLElement,
+    rootElement: HTMLElement
+  ): void {
+    element.style.transform = `translate3d(-${
+      rootElement.offsetWidth * this.page
+    }px, 0, 0)`;
+  }
+
+  private generateNavButton(
+    className: string,
+    document: Document,
+    root: HTMLElement,
+    onClickEvent: Function
+  ) {
     const button = document.createElement(`div`);
     button.classList.add(config.classNames.navButtons.root);
-    button.style.left = `-50px`;
+    button.classList.add(className);
 
     const transition = config.padding;
 
-    button.addEventListener("click", () =>
-      this.nextPage(
-        root.querySelector(config.selectors.rowElement),
-        root
-      )
-    );
+    button.addEventListener("click", () => onClickEvent());
 
     button.innerHTML = ">";
     root.appendChild(button);
-    // root.after(button, root.children[0])
   }
+
+  /**
+   * Generates a card
+   * 
+   * @param document 
+   * @param item 
+   * @param element 
+   * @param attrs 
+   */
 
   private generateCard(
     document: Document,
