@@ -8,7 +8,7 @@ const config = {
     },
     classNames: {
         navButtons: {
-            root: `jc-gc__navbutton`
+            root: `jc-gc__navbutton`,
         },
         cards: {
             root: "jc-glossycard",
@@ -23,6 +23,7 @@ const config = {
 export default class JCGlossyCards {
     constructor(config) {
         this.items = [];
+        this.page = 0;
     }
     /**
      *
@@ -43,17 +44,34 @@ export default class JCGlossyCards {
             this.items.forEach((item) => {
                 const padding = config.padding;
                 this.generateCard(document, item, rowElement, {
-                    width: element.offsetWidth / config.numItems - padding * 2,
+                    width: this.calculateCardWidth(element, config.numItems, padding),
                     padding,
                 });
             });
         });
     }
+    /**
+     *
+     * @param element Root element
+     * @param itemsPerRow
+     * @param padding
+     * @returns
+     */
+    calculateCardWidth(element, itemsPerRow, padding) {
+        return element.offsetWidth / itemsPerRow - padding * 2;
+    }
+    nextPage(rowElement, rootElement) {
+        this.page++;
+        if (!!rowElement)
+            rowElement.style.transform = `translate3d(-${rootElement.offsetWidth * this.page}px, 0, 0)`;
+    }
     generateNavButton(document, root) {
         const button = document.createElement(`div`);
         button.classList.add(config.classNames.navButtons.root);
         button.style.left = `-50px`;
-        button.innerHTML = '>';
+        const transition = config.padding;
+        button.addEventListener("click", () => this.nextPage(root.querySelector(config.selectors.rowElement), root));
+        button.innerHTML = ">";
         root.appendChild(button);
         // root.after(button, root.children[0])
     }

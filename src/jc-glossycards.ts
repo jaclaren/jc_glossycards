@@ -7,18 +7,18 @@ const config = {
   padding: 10,
   numItems: 7,
   selectors: {
-    attachElements: ".jc-glossycards",    
+    attachElements: ".jc-glossycards",
     contentElement: `.jc-gc__content`,
     rowElement: `.jc-gc__row`,
   },
   classNames: {
     navButtons: {
-      root: `jc-gc__navbutton`
+      root: `jc-gc__navbutton`,
     },
     cards: {
       root: "jc-glossycard",
       img: "jc-gc__img",
-      bgElement: `jc-gc__bg`,      
+      bgElement: `jc-gc__bg`,
       titleElement: `jc-gc__title`,
       glossElement: `jc-gc__gloss`,
       wrapper: `jc-gc__wrapper`,
@@ -28,9 +28,11 @@ const config = {
 
 export default class JCGlossyCards {
   items: JCGlossyCardItem[];
+  page: number;
 
   constructor(config?: JCGlossyCardsConfigObject) {
     this.items = [];
+    this.page = 0;
   }
 
   /**
@@ -49,28 +51,59 @@ export default class JCGlossyCards {
     document
       .querySelectorAll(config.selectors.attachElements)
       .forEach((element: any) => {
-        const rowElement = element.querySelector(config.selectors.rowElement)                        
-        this.generateNavButton(document, element)
+        const rowElement = element.querySelector(config.selectors.rowElement);
+        this.generateNavButton(document, element);
 
         this.items.forEach((item) => {
           const padding = config.padding;
 
           this.generateCard(document, item, rowElement, {
-            width: element.offsetWidth / config.numItems - padding * 2,
+            width: this.calculateCardWidth(element, config.numItems, padding),
             padding,
           });
         });
       });
   }
 
-  private generateNavButton(document: Document, root: Element) {
-    const button = document.createElement(`div`)
-    button.classList.add(config.classNames.navButtons.root)
+  /**
+   *
+   * @param element Root element
+   * @param itemsPerRow
+   * @param padding
+   * @returns
+   */
+  private calculateCardWidth(
+    element: any,
+    itemsPerRow: number,
+    padding: number
+  ): number | undefined {
+    return element.offsetWidth / itemsPerRow - padding * 2;
+  }
+
+  nextPage(rowElement: HTMLElement | null, rootElement: HTMLElement): void {
+    this.page++;
+
+    if (!!rowElement)
+      rowElement.style.transform = `translate3d(-${rootElement.offsetWidth*this.page}px, 0, 0)`;
+  }
+
+  private generateNavButton(document: Document, root: HTMLElement) {
+    const button = document.createElement(`div`);
+    button.classList.add(config.classNames.navButtons.root);
     button.style.left = `-50px`;
 
-    button.innerHTML = '>'    
-    root.appendChild(button)
-      // root.after(button, root.children[0])
+    const transition = config.padding;
+
+    button.addEventListener("click", () =>
+      this.nextPage(
+        root.querySelector(config.selectors.rowElement),
+        root
+      )
+    );
+
+    button.innerHTML = ">";
+    root.appendChild(button);
+    // root.after(button, root.children[0])
   }
 
   private generateCard(
