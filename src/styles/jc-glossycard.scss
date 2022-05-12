@@ -2,7 +2,7 @@
     .jc-glossycards {
         display: flex;
         flex-direction: row;        
-        overflow: hidden;
+        // overflow: hidden;
         position: relative;
     }
     
@@ -23,33 +23,14 @@
         perspective: 400px;
         perspective-origin: center;
     
-        cursor: pointer;
-    
+        cursor: pointer;    
     }
     
-    .jc-gc {        
-        &__navbutton {
-            content: ">";
-            width: 80px;
-            line-height: 50px;
-            position: absolute;
-            left: -50px;
-            top: 8px;
-            bottom: 20px;
-            background:rgba(0, 0, 0, 0.25);
-            z-index: 500;
-        }
-    
-        &__content {
-            display: flex;
-        }
-    
+    .jc-gc {            
         &__img {        
             display: block;        
             max-height: 140px;      
             border-radius: 3px;  
             margin: 0 auto;
-        }
-    
-        
+        }           
     }

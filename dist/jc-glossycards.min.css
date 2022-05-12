@@ -1,7 +1,6 @@
 .jc-glossycards {
   display: flex;
   flex-direction: row;
-  overflow: hidden;
   position: relative;
 }
 
@@ -19,20 +18,6 @@
   cursor: pointer;
 }
 
-.jc-gc__navbutton {
-  content: ">";
-  width: 80px;
-  line-height: 50px;
-  position: absolute;
-  left: -50px;
-  top: 8px;
-  bottom: 20px;
-  background: rgba(0, 0, 0, 0.25);
-  z-index: 500;
-}
-.jc-gc__content {
-  display: flex;
-}
 .jc-gc__img {
   display: block;
   max-height: 140px;
@@ -85,6 +70,17 @@
   top: -118px;
 }
 
+.jc-gc__navbutton {
+  content: ">";
+  width: 80px;
+  line-height: 50px;
+  position: absolute;
+  left: 5px;
+  top: 8px;
+  bottom: 20px;
+  background: rgba(0, 0, 0, 0.25);
+  z-index: 500;
+}
 .jc-gc__bg {
   content: ".";
   filter: blur(27px) brightness(0.5);
@@ -95,6 +91,11 @@
   bottom: -20%;
   z-index: -1;
   background-size: 100% 500%;
+}
+
+.jc-gc__row {
+  display: flex;
+  overflow: hidden;
 }
 
 body {

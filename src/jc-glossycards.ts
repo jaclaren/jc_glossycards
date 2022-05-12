@@ -4,11 +4,12 @@ import {
 } from "./jc-glossycards.d";
 
 const config = {
-  padding: 9,
-  numItems: 6,
+  padding: 10,
+  numItems: 7,
   selectors: {
     attachElements: ".jc-glossycards",    
-    contentElement: `.jc-gc__content`
+    contentElement: `.jc-gc__content`,
+    rowElement: `.jc-gc__row`,
   },
   classNames: {
     navButtons: {
@@ -48,13 +49,13 @@ export default class JCGlossyCards {
     document
       .querySelectorAll(config.selectors.attachElements)
       .forEach((element: any) => {
-        const contentElement = element.querySelector(config.selectors.contentElement)        
-        this.generateNavButton(document, contentElement)
+        const rowElement = element.querySelector(config.selectors.rowElement)                        
+        this.generateNavButton(document, rowElement)
 
         this.items.forEach((item) => {
           const padding = config.padding;
 
-          this.generateCard(document, item, contentElement, {
+          this.generateCard(document, item, rowElement, {
             width: element.offsetWidth / config.numItems - padding * 2,
             padding,
           });
