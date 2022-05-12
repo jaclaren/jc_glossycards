@@ -113,6 +113,10 @@ export default class JCGlossyCards {
     return element.offsetWidth / itemsPerRow - padding * 2;
   }
 
+  getLastPageIndex() {    
+    return Math.ceil(this.items.length / config.numItems)
+  }
+
   previousPage(rowElement: HTMLElement | null, rootElement: HTMLElement): void {
     
     if(this.page >= 1) {      
@@ -127,8 +131,11 @@ export default class JCGlossyCards {
   }
 
   refresh() {       
-    const el = document.querySelector(`.${config.classNames.navButtons.abbreviation}-left`) as HTMLElement;
-    el.style.visibility = this.page >= 1 ? `inherit` : `hidden`;
+    const leftButton = document.querySelector(`.${config.classNames.navButtons.abbreviation}-left`) as HTMLElement;
+    const rightButton = document.querySelector(`.${config.classNames.navButtons.abbreviation}-right`) as HTMLElement;
+    
+    leftButton.style.visibility = this.page >= 1 ? `inherit` : `hidden`;    
+    rightButton.style.visibility = this.page <= this.getLastPageIndex()-2 ? `inherit` : `hidden`;    
   }
 
   nextPage(rowElement: HTMLElement | null, rootElement: HTMLElement): void {    

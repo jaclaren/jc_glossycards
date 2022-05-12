@@ -76,6 +76,9 @@ export default class JCGlossyCards {
     calculateCardWidth(element, itemsPerRow, padding) {
         return element.offsetWidth / itemsPerRow - padding * 2;
     }
+    getLastPageIndex() {
+        return Math.ceil(this.items.length / config.numItems);
+    }
     previousPage(rowElement, rootElement) {
         if (this.page >= 1) {
             this.page--;
@@ -88,8 +91,10 @@ export default class JCGlossyCards {
         this.refresh();
     }
     refresh() {
-        const el = document.querySelector(`.${config.classNames.navButtons.abbreviation}-left`);
-        el.style.visibility = this.page >= 1 ? `inherit` : `hidden`;
+        const leftButton = document.querySelector(`.${config.classNames.navButtons.abbreviation}-left`);
+        const rightButton = document.querySelector(`.${config.classNames.navButtons.abbreviation}-right`);
+        leftButton.style.visibility = this.page >= 1 ? `inherit` : `hidden`;
+        rightButton.style.visibility = this.page <= this.getLastPageIndex() - 2 ? `inherit` : `hidden`;
     }
     nextPage(rowElement, rootElement) {
         // if(this.page >= 1)

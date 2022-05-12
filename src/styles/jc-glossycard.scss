@@ -22,6 +22,8 @@
     
         perspective: 400px;
         perspective-origin: center;
+
+        user-select: none;
     
         cursor: pointer;    
     }

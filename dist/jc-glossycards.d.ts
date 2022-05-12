@@ -29,6 +29,7 @@ export default class JCGlossyCards {
      * @returns
      */
     private calculateCardWidth;
+    getLastPageIndex(): number;
     previousPage(rowElement: HTMLElement | null, rootElement: HTMLElement): void;
     refresh(): void;
     nextPage(rowElement: HTMLElement | null, rootElement: HTMLElement): void;

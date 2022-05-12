@@ -15,6 +15,7 @@
   overflow: hidden;
   perspective: 400px;
   perspective-origin: center;
+  user-select: none;
   cursor: pointer;
 }
 
@@ -72,6 +73,7 @@
 
 .jc-gc__navbutton {
   content: ">";
+  cursor: pointer;
   width: 60px;
   line-height: 50px;
   position: absolute;
@@ -80,6 +82,7 @@
   border-radius: 4px;
   background: rgba(0, 0, 0, 0.8);
   z-index: 500;
+  user-select: none;
 }
 .jc-gc__nb-right {
   right: -86px;
