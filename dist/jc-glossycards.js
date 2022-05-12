@@ -1,19 +1,23 @@
 const config = {
-    padding: 8,
+    padding: 9,
     numItems: 6,
     selectors: {
         attachElements: ".jc-glossycards",
+        contentElement: `.jc-gc__content`
     },
     classNames: {
+        navButtons: {
+            root: `jc-gc__navbutton`
+        },
         cards: {
-            root: 'jc-glossycard',
-            img: 'jc-gc__img',
+            root: "jc-glossycard",
+            img: "jc-gc__img",
             bgElement: `jc-gc__bg`,
             titleElement: `jc-gc__title`,
             glossElement: `jc-gc__gloss`,
-            wrapper: `jc-gc__wrapper`
-        }
-    }
+            wrapper: `jc-gc__wrapper`,
+        },
+    },
 };
 export default class JCGlossyCards {
     constructor(config) {
@@ -33,14 +37,22 @@ export default class JCGlossyCards {
         document
             .querySelectorAll(config.selectors.attachElements)
             .forEach((element) => {
+            const contentElement = element.querySelector(config.selectors.contentElement);
+            this.generateNavButton(document, contentElement);
             this.items.forEach((item) => {
                 const padding = config.padding;
-                this.generateCard(document, item, element, {
-                    width: (element.offsetWidth / config.numItems) - (padding * 2),
-                    padding
+                this.generateCard(document, item, contentElement, {
+                    width: element.offsetWidth / config.numItems - padding * 2,
+                    padding,
                 });
             });
         });
+    }
+    generateNavButton(document, root) {
+        const button = document.createElement(`div`);
+        button.classList.add(config.classNames.navButtons.root);
+        button.innerHTML = '>';
+        root.after(button, root.children[0]);
     }
     generateCard(document, item, element, attrs) {
         const rootElement = document.createElement("div");

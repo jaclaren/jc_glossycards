@@ -9,5 +9,6 @@ export default class JCGlossyCards {
     setItems(items: JCGlossyCardItem[]): void;
     initialize(): void;
     attach(document: Document): void;
+    private generateNavButton;
     private generateCard;
 }

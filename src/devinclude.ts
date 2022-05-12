@@ -8,8 +8,7 @@ const games = fetchGames()
         .then((res) => res.json())
         .then(res => 
             {                
-                const g = res.body.games.map((game: { coverimage: any; }) => {
-                    debugger
+                const g = res.body.games.map((game: { coverimage: any; }) => {                    
                     return {
                         img : game.coverimage,
                         href : '#'

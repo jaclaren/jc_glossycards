@@ -2,10 +2,12 @@ $gloss-top: -218px;
 $gloss-move: 100px;
 
 $transition-length-gloss : 510ms;
-$transition-length-rotate : 300ms;
+$transition-length-rotate : 400ms;
 
 body {
     background: #222;
+    display: flex;
+    justify-content: center;
 }
 
 .tmp {
@@ -17,6 +19,7 @@ body {
     display: flex;
     flex-direction: row;        
     overflow: hidden;
+    position: relative;
 }
 
 .jc-glossycard {
@@ -41,6 +44,18 @@ body {
 }
 
 .jc-gc {        
+    &__navbutton {
+        content: ">";
+        width: 80px;
+        line-height: 50px;
+        position: absolute;
+        left: -50px;
+        top: 8px;
+        bottom: 20px;
+        background:rgba(0, 0, 0, 0.25);
+        z-index: 500;
+    }
+
     &__gloss {
         // display: none;
         position: absolute;
@@ -80,6 +95,10 @@ body {
         }
     
     
+    }
+
+    &__content {
+        display: flex;
     }
     
     &__bg {
