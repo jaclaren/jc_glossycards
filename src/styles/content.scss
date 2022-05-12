@@ -1,5 +1,6 @@
 .#{$ns} { 
     &__content {
-        
+        overflow: hidden;
+        position: relative;        
     }
 }

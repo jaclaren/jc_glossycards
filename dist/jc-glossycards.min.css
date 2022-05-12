@@ -93,6 +93,11 @@
   background-size: 100% 500%;
 }
 
+.jc-gc__content {
+  overflow: hidden;
+  position: relative;
+}
+
 .jc-gc__row {
   display: flex;
   overflow: hidden;

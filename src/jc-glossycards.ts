@@ -50,7 +50,7 @@ export default class JCGlossyCards {
       .querySelectorAll(config.selectors.attachElements)
       .forEach((element: any) => {
         const rowElement = element.querySelector(config.selectors.rowElement)                        
-        this.generateNavButton(document, rowElement)
+        this.generateNavButton(document, element)
 
         this.items.forEach((item) => {
           const padding = config.padding;
@@ -69,7 +69,8 @@ export default class JCGlossyCards {
     button.style.left = `-50px`;
 
     button.innerHTML = '>'    
-      root.after(button, root.children[0])
+    root.appendChild(button)
+      // root.after(button, root.children[0])
   }
 
   private generateCard(
