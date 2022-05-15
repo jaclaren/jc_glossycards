@@ -114,6 +114,7 @@
 }
 .jc-gc__navbutton.hidden {
   opacity: 0;
+  animation: none;
 }
 .jc-gc__nb-right {
   right: 25px;

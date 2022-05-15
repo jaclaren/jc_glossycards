@@ -62,10 +62,13 @@ export default class JCGlossyCardList {
       this.previousPage()
     }, `<`)
 
+    this.hideElement(this.navButtonLeft)
+    this.hideElement(this.navButtonRight)
+
     this.rootElement.appendChild(this.navButtonLeft)
     this.rootElement.appendChild(this.navButtonRight)
 
-    this.refresh()
+    this.refresh() 
   }
 
   refresh() {
@@ -85,7 +88,6 @@ export default class JCGlossyCardList {
   }
   
   showElement(element: HTMLElement) {
-    // element.style.display = `inherit`
     element.classList.remove('hidden')
   }
 
@@ -110,11 +112,11 @@ export default class JCGlossyCardList {
    * @param index 
    */
   setPage(index:number) {
-    const newX = this.rootElement.offsetWidth*index        
+    const newX = (this.rootElement.offsetWidth*index)-this.cardWidth
     this.isAtLastPage = newX + this.rootElement.clientWidth > this.lastElementX
     
-    const newValue = this.isAtLastPage ? (this.lastElementX-this.rootElement.clientWidth) : newX;
-    const buffer = this.cardWidth 
+    const newValue = this.isAtLastPage ? (this.lastElementX-this.rootElement.clientWidth)+166 : newX;
+    const buffer = 0
 
     this.rowElement.style.transform = `translate3d(-${newValue >= 0 ? newValue : 0}px, 0, 0)`;    
     this.currentPage = index;
