@@ -9,7 +9,7 @@
     "tsc:watch": "tsc --watch",
     "sass": "sass -w src/styles/main.scss dist/jc-glossycards.min.css"
   },
-  "dependencies": {
+  "devDependencies": {
     "sass": "^1.51.0"
   }
 }
