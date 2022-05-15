@@ -87,6 +87,11 @@
   z-index: 500;
   user-select: none;
 }
+@media (hover: none) {
+  .jc-gc__navbutton {
+    display: none !important;
+  }
+}
 .jc-gc__nb-right {
   right: 0px;
 }
@@ -111,16 +116,15 @@
   max-width: 1200px;
   margin: 0 auto;
 }
-@media only screen and (max-width: 600px) {
-  .jc-gc__content {
-    overflow-x: scroll;
-  }
-}
 
 .jc-gc__row {
   white-space: nowrap;
-  overflow: scroll-x;
   transition: transform ease-in-out 900ms;
+}
+@media only screen and (hover: none) and (max-width: 768px) {
+  .jc-gc__row {
+    overflow-x: scroll;
+  }
 }
 .jc-gc__row > * {
   display: inline-block;

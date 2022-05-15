@@ -16,6 +16,10 @@
         z-index: 500;
 
         user-select: none;
+
+        @media (hover: none) {
+            display: none !important;
+        }   
     }
 
     &__nb {
@@ -26,6 +30,7 @@
         &-left {
             left: $s;
         }
+
     }
 
 }

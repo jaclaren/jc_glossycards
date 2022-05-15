@@ -1,15 +1,15 @@
 .#{$ns} { 
     &__row {    
-        // overflow: auto;
         white-space: nowrap;
-
-        overflow: scroll-x;
-        // touch-action: pan-x;        
+        
+        @media only screen and (hover: none) and (max-width: 768px) {
+            
+            overflow-x: scroll;
+        }
 
         & > * { 
             display: inline-block;   
             padding: 7px;
-            // padding: 0.8vw;
         }
         
         transition: transform ease-in-out 900ms;
