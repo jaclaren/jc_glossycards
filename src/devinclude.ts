@@ -1,3 +1,4 @@
+import JCGlossyCardList from "./jc-glossycards.js";
 import JCGlossyCards from "./jc-glossycards.js";
 
 const fetchGames = () => {
@@ -15,9 +16,10 @@ const games = fetchGames()
                     }
                 })
 
-                const cards = new JCGlossyCards()
-                cards.setItems(g)
-                cards.initialize()
+                document.querySelectorAll(`.jc-glossycards`).forEach(card => {
+                    const cardList = new JCGlossyCardList(card as HTMLElement)
+                    cardList.setData(g)                                        
+                })
 
             })
                         

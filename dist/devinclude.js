@@ -1,4 +1,4 @@
-import JCGlossyCards from "./jc-glossycards.js";
+import JCGlossyCardList from "./jc-glossycards.js";
 const fetchGames = () => {
     return fetch("./fake.json");
 };
@@ -11,7 +11,8 @@ const games = fetchGames()
             href: '#'
         };
     });
-    const cards = new JCGlossyCards();
-    cards.setItems(g);
-    cards.initialize();
+    document.querySelectorAll(`.jc-glossycards`).forEach(card => {
+        const cardList = new JCGlossyCardList(card);
+        cardList.setData(g);
+    });
 });

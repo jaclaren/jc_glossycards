@@ -1,6 +1,12 @@
 .#{$ns} { 
     &__content {
-        overflow: hidden;
-        position: relative;        
+        // overflow: hidden;
+        position: relative;   
+        max-width: 1200px;
+        margin: 0 auto;             
+
+        @media only screen and (max-width: 600px) {
+            overflow-x: scroll;
+        }
     }
 }

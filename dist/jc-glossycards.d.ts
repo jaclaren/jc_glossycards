@@ -1,47 +1,30 @@
-import { JCGlossyCardItem, JCGlossyCardsConfigObject } from "./jc-glossycards.d";
-export default class JCGlossyCards {
-    items: JCGlossyCardItem[];
-    page: number;
-    visibility: {
-        leftNavButton: boolean;
-        rightNavButton: boolean;
-    };
-    constructor(config?: JCGlossyCardsConfigObject);
+import { JCGlossyCardItem } from "./jc-glossycards.d";
+export default class JCGlossyCardList {
+    rootElement: HTMLElement;
+    contentElement: HTMLElement;
+    rowElement: HTMLElement;
+    currentPage: number;
     /**
      *
-     * @param items Items to render
+     * @param element Root element of the card list
      */
-    setItems(items: JCGlossyCardItem[]): void;
-    initialize(): void;
-    attach(document: Document): void;
+    constructor(element: HTMLElement);
     /**
-     * Generates nav buttons
-     * @param document
-     * @param element root glossycard element
+     * Sets the slider to the correct page
+     * @param index
      */
-    private generateNavButtons;
+    setPage(index: number): void;
     /**
-     * Calculates the width for an individual card
-     *
-     * @param element Root element
-     * @param itemsPerRow
-     * @param padding
-     * @returns
+     * Sets scoller to the next page
      */
-    private calculateCardWidth;
-    getLastPageIndex(): number;
-    previousPage(rowElement: HTMLElement | null, rootElement: HTMLElement): void;
-    refresh(): void;
-    nextPage(rowElement: HTMLElement | null, rootElement: HTMLElement): void;
-    renderElementTransition(element: HTMLElement, rootElement: HTMLElement): void;
-    private generateNavButton;
+    nextPage(): void;
     /**
-     * Generates a card
-     *
-     * @param document
-     * @param item
-     * @param element
-     * @param attrs
+     * Sets scoller to the previous page
      */
-    private generateCard;
+    previousPage(): void;
+    /**
+     * Sets the data, generates the DOM elements and attaches them to the list
+     * @param items
+     */
+    setData(items: JCGlossyCardItem[]): void;
 }

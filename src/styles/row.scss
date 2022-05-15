@@ -1,6 +1,17 @@
 .#{$ns} { 
     &__row {    
-        display: flex;        
-        // overflow: hidden;
+        // overflow: auto;
+        white-space: nowrap;
+
+        overflow: scroll-x;
+        // touch-action: pan-x;        
+
+        & > * { 
+            display: inline-block;   
+            padding: 7px;
+            // padding: 0.8vw;
+        }
+        
+        transition: transform ease-in-out 900ms;
     }
 }

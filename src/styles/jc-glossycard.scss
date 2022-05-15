@@ -2,7 +2,7 @@
     .jc-glossycards {
         display: flex;
         flex-direction: row;        
-        // overflow: hidden;
+        overflow: hidden;
         position: relative;
     }
     
@@ -31,8 +31,10 @@
     .jc-gc {            
         &__img {        
             display: block;        
-            max-height: 140px;      
+            height: 140px;   
+            width: 100px;   
             border-radius: 3px;  
             margin: 0 auto;
+            margin: 10px;
         }           
     }

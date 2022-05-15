@@ -1,6 +1,7 @@
 .jc-glossycards {
   display: flex;
   flex-direction: row;
+  overflow: hidden;
   position: relative;
 }
 
@@ -21,9 +22,11 @@
 
 .jc-gc__img {
   display: block;
-  max-height: 140px;
+  height: 140px;
+  width: 100px;
   border-radius: 3px;
   margin: 0 auto;
+  margin: 10px;
 }
 
 .jc-gc__gloss {
@@ -77,23 +80,23 @@
   width: 60px;
   line-height: 50px;
   position: absolute;
-  top: 70px;
-  bottom: 70px;
+  top: 0;
+  bottom: 0;
   border-radius: 4px;
   background: rgba(0, 0, 0, 0.8);
   z-index: 500;
   user-select: none;
 }
 .jc-gc__nb-right {
-  right: -86px;
+  right: 0px;
 }
 .jc-gc__nb-left {
-  left: -86px;
+  left: 0px;
 }
 
 .jc-gc__bg {
   content: ".";
-  filter: blur(27px) brightness(0.5);
+  filter: blur(27px) brightness(0.65);
   position: absolute;
   left: -20%;
   right: -20%;
@@ -104,22 +107,36 @@
 }
 
 .jc-gc__content {
-  overflow: hidden;
   position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+@media only screen and (max-width: 600px) {
+  .jc-gc__content {
+    overflow-x: scroll;
+  }
 }
 
 .jc-gc__row {
-  display: flex;
+  white-space: nowrap;
+  overflow: scroll-x;
+  transition: transform ease-in-out 900ms;
+}
+.jc-gc__row > * {
+  display: inline-block;
+  padding: 7px;
 }
 
 body {
-  background: #222;
+  background: #151515;
   display: flex;
   justify-content: center;
+  margin: 0;
 }
 
 .tmp {
-  width: 1200px;
+  margin: 0 auto;
+  width: 100%;
 }
 
 /*# sourceMappingURL=jc-glossycards.min.css.map */
