@@ -159,17 +159,8 @@
 }
 
 body {
-  background: #151515;
-  display: flex;
-  justify-content: center;
-  margin: 0;
   --jcgc-navbtn-bg-hover: #999;
   --jcgc-navbtn-bg: #8b8b8b;
-}
-
-.tmp {
-  margin: 0 auto;
-  width: 100%;
 }
 
 /*# sourceMappingURL=jc-glossycards.min.css.map */
