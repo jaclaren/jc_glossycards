@@ -1,16 +1,3 @@
-import 'dist/index'
-class JCGlossyCards {
-    /**
-     * 
-     * @param {JCGlossyCardsConfigObject} config 
-     */    
-    constructor(config) {
+import JCGlossyCardList from './dist/jc-glossycards.js'
 
-    }
-
-    initialize() {
-
-    }
-}
-
-export default JCGlossyCards
+export default JCGlossyCardList
