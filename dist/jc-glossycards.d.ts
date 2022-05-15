@@ -3,14 +3,28 @@ export default class JCGlossyCardList {
     rootElement: HTMLElement;
     contentElement: HTMLElement;
     rowElement: HTMLElement;
+    navButtonLeft: HTMLElement;
+    navButtonRight: HTMLElement;
     currentPage: number;
+    cardWidth: number;
+    lastElementX: number;
+    isAtLastPage: boolean;
     /**
      *
      * @param element Root element of the card list
      */
     constructor(element: HTMLElement);
+    refresh(): void;
+    hideElement(element: HTMLElement): void;
+    showElement(element: HTMLElement): void;
     /**
-     * Sets the slider to the correct page
+     * Returns the px offset of the last card in the scroller
+     */
+    getLastCardX(): number;
+    hasMorePages(): boolean;
+    isFirstPage(): boolean;
+    /**
+     * Sets the internal page index
      * @param index
      */
     setPage(index: number): void;

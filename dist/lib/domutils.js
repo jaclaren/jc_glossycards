@@ -35,5 +35,5 @@ export const generateCard = (document, item, element, attrs, config) => {
     wrapperElement.appendChild(glossElement);
     wrapperElement.appendChild(imageElement);
     wrapperElement.appendChild(titleElement);
-    element.appendChild(rootElement);
+    return rootElement;
 };

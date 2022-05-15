@@ -31,7 +31,7 @@ export const generateNavButton = (
       padding?: number;
     },
     config: any
-  ) => {
+  ):HTMLElement => {
     const rootElement = document.createElement("div");
     rootElement.classList.add(config.classNames.cards.root);
     rootElement.style.flexBasis = `${attrs.width}px`;
@@ -61,5 +61,5 @@ export const generateNavButton = (
     wrapperElement.appendChild(imageElement);
     wrapperElement.appendChild(titleElement);
 
-    element.appendChild(rootElement);
+    return rootElement;
   }

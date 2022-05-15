@@ -33,7 +33,13 @@ export default class JCGlossyCardList {
   contentElement: HTMLElement;  
   rowElement: HTMLElement;  
 
+  navButtonLeft: HTMLElement;
+  navButtonRight: HTMLElement;
+
   currentPage: number;
+  cardWidth: number = -1; 
+  lastElementX : number = -1    // We need to set this early, because the css transition affects it's value
+  isAtLastPage: boolean = false;
 
   /**
    * 
@@ -48,26 +54,70 @@ export default class JCGlossyCardList {
 
     this.currentPage = 0;
     
-    const rightButton = generateNavButton([config.classNames.navButtons.root, `${config.classNames.navButtons.abbreviation}-right`], () => {
+    this.navButtonRight = generateNavButton([config.classNames.navButtons.root, `${config.classNames.navButtons.abbreviation}-right`], () => {
       this.nextPage()
     }, ``)
 
-    const leftButton = generateNavButton([config.classNames.navButtons.root, `${config.classNames.navButtons.abbreviation}-left`], () => {
+    this.navButtonLeft = generateNavButton([config.classNames.navButtons.root, `${config.classNames.navButtons.abbreviation}-left`], () => {
       this.previousPage()
     }, ``)
 
+    this.rootElement.appendChild(this.navButtonLeft)
+    this.rootElement.appendChild(this.navButtonRight)
 
-    this.rootElement.appendChild(leftButton)
-    this.rootElement.appendChild(rightButton)
+    this.refresh()
+  }
+
+  refresh() {
+    if(this.isFirstPage())
+      this.hideElement(this.navButtonLeft)
+        else
+      this.showElement(this.navButtonLeft)
+
+    if(this.isAtLastPage)
+      this.hideElement(this.navButtonRight)
+        else
+      this.showElement(this.navButtonRight)
+  }
+  
+  hideElement(element: HTMLElement) {
+    element.style.display = `none`
+  }
+  
+  showElement(element: HTMLElement) {
+    element.style.display = `inherit`
   }
 
   /**
-   * Sets the slider to the correct page
+   * Returns the px offset of the last card in the scroller
+   */
+   getLastCardX():number {
+    const lastCard = this.rowElement.children.item(this.rowElement.children.length - 1) as HTMLElement; 
+    return lastCard.getBoundingClientRect().x        
+  }
+
+  hasMorePages() {
+    return true
+  }
+
+  isFirstPage() {
+    return this.currentPage == 0;
+  }
+
+  /**
+   * Sets the internal page index
    * @param index 
    */
   setPage(index:number) {
-    this.rowElement.style.transform = `translate3d(-${this.rootElement.offsetWidth*index}px, 0, 0)`;    
+    const newX = this.rootElement.offsetWidth*index        
+    this.isAtLastPage = newX + this.rootElement.clientWidth > this.lastElementX
+    
+    const newValue = this.isAtLastPage ? (this.lastElementX-this.rootElement.clientWidth) : newX;
+    const buffer = this.cardWidth 
+
+    this.rowElement.style.transform = `translate3d(-${newValue+buffer}px, 0, 0)`;    
     this.currentPage = index;
+    this.refresh()
   }
 
   /**
@@ -90,8 +140,12 @@ export default class JCGlossyCardList {
    */
   setData(items: JCGlossyCardItem[]) {
     items.forEach(item => {
-      generateCard(document, item, this.rowElement, {}, config)
-    })
+      const card = generateCard(document, item, this.rowElement, {}, config)
+      this.rowElement.appendChild(card)
+      this.cardWidth = card.offsetWidth
+    })    
+
+    this.lastElementX = this.getLastCardX()
   }
 }
 

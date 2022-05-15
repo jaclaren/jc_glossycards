@@ -10,4 +10,4 @@ export declare const generateNavButton: (classNames: string[], onClickEvent: Fun
 export declare const generateCard: (document: Document, item: JCGlossyCardItem, element: Element, attrs: {
     width?: number;
     padding?: number;
-}, config: any) => void;
+}, config: any) => HTMLElement;
