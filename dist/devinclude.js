@@ -8,7 +8,8 @@ const games = fetchGames()
     const g = res.body.games.map((game) => {
         return {
             img: game.coverimage,
-            href: '#'
+            href: '#',
+            title: game.title
         };
     });
     document.querySelectorAll(`.jc-glossycards`).forEach(card => {

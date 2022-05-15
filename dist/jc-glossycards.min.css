@@ -8,6 +8,7 @@
 .jc-glossycard {
   flex-shrink: 0;
   flex-basis: 150px;
+  max-width: 150px;
   padding-bottom: 1.2rem !important;
   display: flex;
   justify-content: space-between;
@@ -41,18 +42,14 @@
 }
 
 .jc-gc__title {
-  margin-top: 1rem;
-  font-family: sans-serif;
-  text-transform: capitalize;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  height: 2.4rem;
+  padding: 0.5rem;
   text-overflow: ellipsis;
-  overflow: hidden;
-  font-size: 1rem;
-  text-shadow: 0px 0px 5px rgb(0, 0, 0);
+  font-family: sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.5px;
   color: #fff;
+  overflow: hidden;
+  text-align: center;
 }
 
 .jc-gc__wrapper {

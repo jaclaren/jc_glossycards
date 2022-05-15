@@ -9,10 +9,11 @@ const games = fetchGames()
         .then((res) => res.json())
         .then(res => 
             {                
-                const g = res.body.games.map((game: { coverimage: any; }) => {                    
+                const g = res.body.games.map((game: { coverimage: any; title:any; }) => {                    
                     return {
                         img : game.coverimage,
-                        href : '#'
+                        href : '#',
+                        title: game.title
                     }
                 })
 

@@ -9,8 +9,10 @@
     .jc-glossycard {
         flex-shrink: 0;
         flex-basis: 150px;
+
+        max-width: 150px;
     
-        // padding: 0.5rem;    
+        // padding: 0.rem;    
         padding-bottom: 1.2rem !important;
     
         display: flex;
