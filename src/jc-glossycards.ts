@@ -56,11 +56,11 @@ export default class JCGlossyCardList {
     
     this.navButtonRight = generateNavButton([config.classNames.navButtons.root, `${config.classNames.navButtons.abbreviation}-right`], () => {
       this.nextPage()
-    }, ``)
+    }, `>`)
 
     this.navButtonLeft = generateNavButton([config.classNames.navButtons.root, `${config.classNames.navButtons.abbreviation}-left`], () => {
       this.previousPage()
-    }, ``)
+    }, `<`)
 
     this.rootElement.appendChild(this.navButtonLeft)
     this.rootElement.appendChild(this.navButtonRight)
@@ -81,11 +81,12 @@ export default class JCGlossyCardList {
   }
   
   hideElement(element: HTMLElement) {
-    element.style.display = `none`
+    element.classList.add('hidden')
   }
   
   showElement(element: HTMLElement) {
-    element.style.display = `inherit`
+    // element.style.display = `inherit`
+    element.classList.remove('hidden')
   }
 
   /**

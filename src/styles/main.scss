@@ -20,7 +20,11 @@ body {
     display: flex;
     justify-content: center;
     margin: 0;
+    
+    --jcgc-navbtn-bg-hover: #999;
+    --jcgc-navbtn-bg: #8b8b8b;
 }
+
 
 .tmp {
     margin: 0 auto;

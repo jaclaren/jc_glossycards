@@ -71,29 +71,58 @@
   top: -118px;
 }
 
+@keyframes fadein {
+  0% {
+    opacity: 0;
+    right: 150px;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 .jc-gc__navbutton {
   content: ">";
   cursor: pointer;
   width: 60px;
   line-height: 50px;
   position: absolute;
-  top: 0;
-  bottom: 0;
-  border-radius: 4px;
-  background: rgba(0, 0, 0, 0.8);
+  top: 35%;
+  bottom: 40%;
+  border-radius: 50%;
+  background: var(--jcgc-navbtn-bg);
   z-index: 500;
   user-select: none;
+  animation: fadein ease-in-out 500ms;
+  transition: opacity ease-in-out 500ms;
+  fill: white;
+  box-shadow: 0px 0px 10px black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 @media (hover: none) {
   .jc-gc__navbutton {
     display: none !important;
   }
 }
+.jc-gc__navbutton:hover {
+  background: var(--jcgc-navbtn-bg-hover);
+}
+.jc-gc__navbutton svg {
+  width: 20px;
+  height: 20px;
+}
+.jc-gc__navbutton.hidden {
+  opacity: 0;
+}
 .jc-gc__nb-right {
-  right: 0px;
+  right: 25px;
 }
 .jc-gc__nb-left {
-  left: 0px;
+  left: 25px;
+}
+.jc-gc__nb-left svg {
+  transform: scaleX(-1);
 }
 
 .jc-gc__bg {
@@ -133,6 +162,8 @@ body {
   display: flex;
   justify-content: center;
   margin: 0;
+  --jcgc-navbtn-bg-hover: #999;
+  --jcgc-navbtn-bg: #8b8b8b;
 }
 
 .tmp {

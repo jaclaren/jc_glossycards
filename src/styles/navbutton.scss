@@ -1,3 +1,13 @@
+@keyframes fadein {
+    0% {
+        opacity: 0;
+        right: 150px;
+    }    
+    100% {
+        opacity: 1;        
+    }
+}
+
 .#{$ns} { 
     &__navbutton {
         content: ">";
@@ -6,29 +16,54 @@
         line-height: 50px;
         position: absolute;
 
-        top: 0;
-        bottom: 0;
+        top: 35%;
+        bottom: 40%;
+        border-radius: 50%;
 
-        border-radius: 4px;
-
-        background:rgba(0, 0, 0, 0.8);
-        // background: pink;
+        background: var(--jcgc-navbtn-bg);
         z-index: 500;
 
         user-select: none;
 
         @media (hover: none) {
-            display: none !important;
+            display: none !important;            
         }   
+
+        &:hover {
+            background: var(--jcgc-navbtn-bg-hover)
+        }
+
+        animation: fadein ease-in-out 500ms;
+        transition: opacity ease-in-out 500ms;
+
+        fill: white;
+        
+        svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        box-shadow: 0px 0px 10px black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &.hidden {
+            opacity: 0;
+        }
     }
 
     &__nb {
-        $s: 0px;
+        $s: 25px;
         &-right {
             right: $s;
         }
         &-left {
             left: $s;
+
+            svg {
+                transform: scaleX(-1)
+            }
         }
 
     }

@@ -39,10 +39,10 @@ export default class JCGlossyCardList {
         this.currentPage = 0;
         this.navButtonRight = generateNavButton([config.classNames.navButtons.root, `${config.classNames.navButtons.abbreviation}-right`], () => {
             this.nextPage();
-        }, ``);
+        }, `>`);
         this.navButtonLeft = generateNavButton([config.classNames.navButtons.root, `${config.classNames.navButtons.abbreviation}-left`], () => {
             this.previousPage();
-        }, ``);
+        }, `<`);
         this.rootElement.appendChild(this.navButtonLeft);
         this.rootElement.appendChild(this.navButtonRight);
         this.refresh();
@@ -58,10 +58,11 @@ export default class JCGlossyCardList {
             this.showElement(this.navButtonRight);
     }
     hideElement(element) {
-        element.style.display = `none`;
+        element.classList.add('hidden');
     }
     showElement(element) {
-        element.style.display = `inherit`;
+        // element.style.display = `inherit`
+        element.classList.remove('hidden');
     }
     /**
      * Returns the px offset of the last card in the scroller
