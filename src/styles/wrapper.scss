@@ -15,7 +15,7 @@
 
         &:hover {
             .jc-gc__gloss { 
-                top: calc($gloss-top + $gloss-move);
+                top: calc(var(--jcgc-gloss-top) + var(--jcgc-gloss-move));
              }   
              
              box-shadow: 0px 3px 11px 2px rgb(0 0 0 / 36%);

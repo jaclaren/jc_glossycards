@@ -1,6 +1,3 @@
-$gloss-top: -218px;
-$gloss-move: 100px;
-
 $transition-length-gloss : 510ms;
 $transition-length-rotate : 400ms;
 
@@ -18,4 +15,8 @@ $ns : 'jc-gc';
 body {
     --jcgc-navbtn-bg-hover: #999;
     --jcgc-navbtn-bg: #8b8b8b;
+
+    --jcgc-gloss-move: 98px;
+    --jcgc-gloss-top: -220px;
+    --jcgc-gloss-rotation: rotate(320deg);           
 }

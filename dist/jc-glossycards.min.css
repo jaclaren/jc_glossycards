@@ -32,12 +32,12 @@
 
 .jc-gc__gloss {
   position: absolute;
-  top: -218px;
-  background: linear-gradient(rgba(255, 255, 255, 0.4) 97%, rgba(255, 255, 255, 0) 100%);
+  top: var(--jcgc-gloss-top);
+  background: linear-gradient(rgba(255, 255, 255, 0.22) 97%, rgba(255, 255, 255, 0) 100%);
   left: -150px;
   right: -150px;
   height: 200px;
-  transform: rotate(320deg);
+  transform: var(--jcgc-gloss-rotation);
   transition: all ease-in-out 510ms;
 }
 
@@ -68,7 +68,7 @@
   transform: rotate3d(1, 0, 0, 5deg);
 }
 .jc-gc__wrapper:hover .jc-gc__gloss {
-  top: -118px;
+  top: calc(var(--jcgc-gloss-top) + var(--jcgc-gloss-move));
 }
 
 @keyframes fadein {
@@ -161,6 +161,9 @@
 body {
   --jcgc-navbtn-bg-hover: #999;
   --jcgc-navbtn-bg: #8b8b8b;
+  --jcgc-gloss-move: 98px;
+  --jcgc-gloss-top: -220px;
+  --jcgc-gloss-rotation: rotate(320deg);
 }
 
 /*# sourceMappingURL=jc-glossycards.min.css.map */
