@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "main": "dist/index.js",
   "repository": "https://github.com/jaclaren/jc_glossycards.git",
-  "type" : "module",
   "author": "Jani <on.codeworks@gmail.com>",
   "license": "MIT",
   "scripts": { 
