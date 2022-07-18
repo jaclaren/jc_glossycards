@@ -49,4 +49,10 @@ document.querySelectorAll(".games").forEach((_) => {
 	...
 
 	<RJCGlossyCardList items={items} />
+	
 ```
+
+# Items
+## href
+## img
+## title
