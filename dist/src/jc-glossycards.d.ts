@@ -1,4 +1,4 @@
-import { JCGlossyCardItem } from "./JCGlossyCardItem";
+import { JCGlossyCardItem } from "./jc-glossycards.d";
 export default class JCGlossyCardList {
     rootElement: HTMLElement;
     contentElement: HTMLElement;

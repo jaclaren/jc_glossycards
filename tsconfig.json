@@ -6,41 +6,8 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "declaration": true,
-    "outDir": "dist"
-  }
+    "outDir": "dist",
+    "jsx": "react-jsx",
+    "moduleResolution": "node"
+  }  
 }
-
-// {
-//     "compilerOptions": {
-//       "module" : "ES2020",
-//       "target": "ES2015",
-//       "lib": [
-//         "dom",
-//         "dom.iterable",
-//         "esnext",
-//         "es6"        
-//       ],
-//       "outDir": "dist",
-//       "rootDir": "src",      
-//       "allowJs": true,
-//       "skipLibCheck": true,
-//       "esModuleInterop": true,
-//       "allowSyntheticDefaultImports": true,
-//       "strict": false,
-//       "forceConsistentCasingInFileNames": true,
-//       "noFallthroughCasesInSwitch": true,      
-//       "moduleResolution": "node",
-//       "resolveJsonModule": true,
-//       "isolatedModules": true,
-//       "noEmit": false,
-//       "jsx": "react-jsx"      
-//     },
-//     "exclude": [
-//       "src/**/*.tests.js",
-//       "dist/*"
-//     ],
-//     "include": [
-//       "src/**/*"
-//     ]
-//   }
-  
