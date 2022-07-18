@@ -1,4 +1,6 @@
-import { generateCard, generateNavButton } from "./lib/domutils.js";
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const domutils_js_1 = require("./lib/domutils.js");
 const config = {
     padding: 10,
     numItems: 7,
@@ -22,7 +24,7 @@ const config = {
         },
     },
 };
-export default class JCGlossyCardList {
+class JCGlossyCardList {
     /**
      *
      * @param element Root element of the card list
@@ -37,10 +39,10 @@ export default class JCGlossyCardList {
         this.contentElement = element.querySelector(config.selectors.contentElement);
         this.rowElement = element.querySelector(config.selectors.rowElement);
         this.currentPage = 0;
-        this.navButtonRight = generateNavButton([config.classNames.navButtons.root, `${config.classNames.navButtons.abbreviation}-right`], () => {
+        this.navButtonRight = domutils_js_1.generateNavButton([config.classNames.navButtons.root, `${config.classNames.navButtons.abbreviation}-right`], () => {
             this.nextPage();
         }, `>`);
-        this.navButtonLeft = generateNavButton([config.classNames.navButtons.root, `${config.classNames.navButtons.abbreviation}-left`], () => {
+        this.navButtonLeft = domutils_js_1.generateNavButton([config.classNames.navButtons.root, `${config.classNames.navButtons.abbreviation}-left`], () => {
             this.previousPage();
         }, `<`);
         this.hideElement(this.navButtonLeft);
@@ -109,10 +111,11 @@ export default class JCGlossyCardList {
      */
     setData(items) {
         items.forEach(item => {
-            const card = generateCard(document, item, this.rowElement, {}, config);
+            const card = domutils_js_1.generateCard(document, item, this.rowElement, {}, config);
             this.rowElement.appendChild(card);
             this.cardWidth = card.offsetWidth;
         });
         this.lastElementX = this.getLastCardX();
     }
 }
+exports.default = JCGlossyCardList;

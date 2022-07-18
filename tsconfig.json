@@ -1,13 +1,13 @@
 {
   "compilerOptions": {
-    "target": "ES2015",
-    "module": "ES2020",
+    "target": "esnext",
+    "module": "commonjs",
     "strict": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "declaration": true,
     "outDir": "dist",
-    "jsx": "react-jsx",
+    "jsx": "react-jsx",    
     "moduleResolution": "node"
   }  
 }

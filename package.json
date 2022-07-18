@@ -6,7 +6,7 @@
   "type" : "module",
   "author": "Jani <on.codeworks@gmail.com>",
   "license": "MIT",
-  "scripts": {
+  "scripts": { 
     "tsc:watch": "tsc --watch --jsx react",
     "sass": "sass -w src/styles/main.scss dist/jc-glossycards.min.css"
   },
