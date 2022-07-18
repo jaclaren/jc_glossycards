@@ -41,3 +41,12 @@ document.querySelectorAll(".games").forEach((_) => {
 		// );
 	});
 ```
+
+## Usage react
+```
+	import {RJCGlossyCardList} from 'jc-glossycards';
+
+	...
+
+	<RJCGlossyCardList items={items} />
+```
