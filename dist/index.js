@@ -1,6 +1,4 @@
 "use strict";
-// import JCGlossyCardList from './dist/jc-glossycards.js'
-// import { JCGlossyCardItem } from './src/jc-glossycards.d'
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
