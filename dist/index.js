@@ -1,13 +1,6 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
+import React from 'react';
+import JCGlossyCardList from './jc-glossycards.js';
+export default JCGlossyCardList;
+export const RJCGlossyCardList = (props) => {
+    return (React.createElement(React.Fragment, null, "Hello"));
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.RJCGlossyCardList = void 0;
-const react_1 = __importDefault(require("react"));
-const jc_glossycards_js_1 = __importDefault(require("./jc-glossycards.js"));
-exports.default = jc_glossycards_js_1.default;
-const RJCGlossyCardList = (props) => {
-    return (react_1.default.createElement(react_1.default.Fragment, null, "Hello"));
-};
-exports.RJCGlossyCardList = RJCGlossyCardList;
