@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import JCGlossyCardList from './jc-glossycards';
+import JCGlossyCardList from './jc-glossycards.js';
 export interface IJCGlossyCardListProps {
     items: any[];
 }
