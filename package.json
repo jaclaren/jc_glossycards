@@ -5,6 +5,7 @@
   "repository": "https://github.com/jaclaren/jc_glossycards.git",
   "author": "Jani <on.codeworks@gmail.com>",
   "license": "MIT",
+  "type": "module",
   "scripts": {
     "tsc:watch": "tsc --watch --jsx react",
     "sass": "sass -w src/styles/main.scss dist/jc-glossycards.min.css"
