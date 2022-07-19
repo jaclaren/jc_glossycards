@@ -1,6 +1,11 @@
 import JCGlossyCardList from "./jc-glossycards.js";
 import JCGlossyCards from "./jc-glossycards.js";
 
+import {RJCGlossyCardList} from './index'
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+
 const fetchGames = () => {
   return fetch("./fake.json");
 };
@@ -21,6 +26,11 @@ const games = fetchGames()
                     const cardList = new JCGlossyCardList(card as HTMLElement)
                     cardList.setData(g)                                        
                 })
+ 
+                const reactElement = document.querySelectorAll(`.jc-glossycards__react`)
 
+                // @ts-ignore
+                ReactDOM.render(RJCGlossyCardList, reactElement)
+                
             })
                         

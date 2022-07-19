@@ -1,3 +1,4 @@
+"use strict";
 /**
  * Generates the HTML elements for the card
  *
@@ -5,7 +6,9 @@
  * @param onClickEvent
  * @param text
  */
-export const generateNavButton = (classNames, onClickEvent, text = ``) => {
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.generateCard = exports.generateNavButton = void 0;
+const generateNavButton = (classNames, onClickEvent, text = ``) => {
     const button = document.createElement(`div`);
     classNames.forEach((className) => button.classList.add(className));
     button.addEventListener("click", () => onClickEvent());
@@ -20,7 +23,8 @@ export const generateNavButton = (classNames, onClickEvent, text = ``) => {
     button.append(svg);
     return button;
 };
-export const generateCard = (document, item, element, attrs, config) => {
+exports.generateNavButton = generateNavButton;
+const generateCard = (document, item, element, attrs, config) => {
     const rootElement = document.createElement("a");
     rootElement.href = item.href;
     rootElement.classList.add(config.classNames.cards.root);
@@ -46,3 +50,4 @@ export const generateCard = (document, item, element, attrs, config) => {
     wrapperElement.appendChild(titleElement);
     return rootElement;
 };
+exports.generateCard = generateCard;
